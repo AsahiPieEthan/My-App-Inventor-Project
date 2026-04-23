@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A personal website — Frieren themed, beyond journey's end.">
+  <title>Frieren — Beyond Journey's End</title>
+  <link rel="stylesheet" href="Frieren.css">
+</head>
+<body>
+
+  <div id="loader" aria-hidden="true">
+    <div class="loader__line"></div>
+    <p class="loader__text"><span>✦ &nbsp; entering the realm &nbsp; ✦</span></p>
+  </div>
+
+  <div class="cursor__dot" aria-hidden="true"></div>
+  <div class="cursor__ring" aria-hidden="true"></div>
+
+  <nav class="hero-mode" role="navigation" aria-label="Main navigation">
+    <a href="#home" class="nav__logo">✦ Isekai Mage</a>
+    <ul class="nav__links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#works">Works</a></li>
+      <li><a href="#frieren">Frieren</a></li>
+      <li><a href="#skills">Magic</a></li>
+      <li><a href="#contact">Summon</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO SLIDER -->
+     
+
+  <section class="hero" id="home">
+    <div class="hero__slides" aria-hidden="true">
+
+      <div class="hero__slide active">
+        <img src="Frieren_gifMain.gif" alt="Description" class="hero__slide-img">
+      </div>
+
+      <div class="hero__slide">
+         <img src="Frieren_gif1.gif" alt="Description" class="hero__slide-img">
+         </div>
+      <div class="hero__slide">
+          <img src="Frieren_gif3.gif" alt="Description" class="hero__slide-img">
+      </div>
+
+    </div>
+
+    <!-- Floral overlays -->
+<!-- Left botanical — slightly leaning, irregular petals -->
+<svg style="position:absolute;top:5%;left:1.5%;width:clamp(100px,11vw,170px);pointer-events:none;opacity:0.12;z-index:5;" viewBox="0 0 170 230" fill="none" aria-hidden="true">
+  <!-- main petal — leans slightly left, uneven sides -->
+  <path d="M83 9C81 9 61 38 84 71C105 41 87 8 83 9Z" fill="#fff"/>
+  <!-- left leaf — droops more naturally -->
+  <path d="M84 49C84 49 52 53 50 89C54 88 80 79 84 49Z" fill="rgba(255,255,255,.7)"/>
+  <!-- right leaf — slightly higher, shorter -->
+  <path d="M84 47C84 47 117 54 118 84C113 83 88 73 84 47Z" fill="rgba(255,255,255,.68)"/>
+  <!-- stem — very slight curve, not perfectly straight -->
+  <path d="M84 71C84 95 83 130 82 224" stroke="#fff" stroke-width="1.1" opacity=".45" fill="none"/>
+  <!-- left branch — angles more sharply -->
+  <line x1="83" y1="131" x2="52" y2="156" stroke="#fff" stroke-width=".7" opacity=".38"/>
+  <!-- right branch — slightly longer -->
+  <line x1="83" y1="146" x2="115" y2="161" stroke="#fff" stroke-width=".9" opacity=".35"/>
+  <!-- center bud — slightly off-center -->
+  <circle cx="83" cy="46" r="5.5" fill="#fff" opacity=".55"/>
+  <!-- lower left leaf — irregular shape -->
+  <path d="M52 120C33 127 37 155 53 149C65 140 56 118 52 120Z" fill="rgba(255,255,255,.38)"/>
+  <!-- lower right leaf — different size to its pair -->
+  <path d="M115 112C134 117 131 143 117 137C107 130 113 110 115 112Z" fill="rgba(255,255,255,.36)"/>
+  <!-- tiny bud on left branch -->
+  <circle cx="52" cy="156" r="2.5" fill="#fff" opacity=".3"/>
+</svg>
+
+<!-- Right botanical — mirrored but with its own quirks -->
+<svg style="position:absolute;bottom:8%;right:2%;width:clamp(110px,12vw,180px);pointer-events:none;opacity:0.1;z-index:5;transform:scaleX(-1) rotate(8deg);" viewBox="0 0 180 250" fill="none" aria-hidden="true">
+  <!-- main petal — slightly wider on one side -->
+  <path d="M88 9C86 10 62 47 89 81C116 48 92 7 88 9Z" fill="#fff"/>
+  <!-- left leaf — lower hang, more relaxed -->
+  <path d="M89 54C88 54 53 61 54 100C59 98 85 88 89 54Z" fill="rgba(255,255,255,.58)"/>
+  <!-- right leaf — tighter, slightly higher -->
+  <path d="M89 52C90 52 126 59 127 93C122 91 93 81 89 52Z" fill="rgba(255,255,255,.62)"/>
+  <!-- center bud — a touch bigger than the other floral -->
+  <circle cx="88" cy="51" r="7" fill="#fff" opacity=".48"/>
+  <!-- stem — gentle s-curve -->
+  <path d="M89 81C89 105 88 155 87 244" stroke="#fff" stroke-width="1.3" opacity=".38" fill="none"/>
+  <!-- lower left leaf — longer than its pair -->
+  <path d="M89 152C64 163 67 191 82 186C90 178 91 150 89 152Z" fill="rgba(255,255,255,.28)"/>
+  <!-- lower right leaf -->
+  <path d="M89 170C114 179 111 205 97 199C90 191 88 168 89 170Z" fill="rgba(255,255,255,.3)"/>
+  <!-- small berry/bud at stem base -->
+  <circle cx="87" cy="200" r="3" fill="#fff" opacity=".22"/>
+  <!-- extra tiny leaf that the other one doesn't have — makes them feel like different plants -->
+  <path d="M89 118C72 122 70 138 80 136C87 132 90 116 89 118Z" fill="rgba(255,255,255,.25)"/>
+</svg>
+
+    <div class="hero__content">
+      <p class="hero__eyebrow">✦ &nbsp; A traveller through time &nbsp; ✦</p>
+      <h1 class="hero__title">
+        <span class="hero__title-line"><span class="hero__title-inner">Beyond Every</span></span>
+        <span class="hero__title-line"><span class="hero__title-inner italic">Journey's End</span></span>
+      </h1>
+      <p class="hero__subtitle">A thousand years of spells, stories, and flowers gathered along the way. Welcome to my corner of the world.</p>
+    </div>
+
+    <div class="hero__slider-bar" id="heroDotsBar"></div>
+    <button class="hero__arrow hero__arrow--prev" id="heroPrev" aria-label="Previous slide">&#8592;</button>
+    <button class="hero__arrow hero__arrow--next" id="heroNext" aria-label="Next slide">&#8594;</button>
+    <div class="hero__counter" aria-hidden="true"><span id="heroCurrentNum">01</span> / 03</div>
+    <div class="hero__progress" id="heroProgress" aria-hidden="true"></div>
+    <div class="hero__scroll" id="heroScrollHint" tabindex="0" aria-label="Scroll down">
+      <div class="hero__scroll-line"></div>
+      <span class="hero__scroll-label">Scroll</span>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span class="marquee__item">Spell Collector</span><span class="marquee__item">Beyond Journey's End</span><span class="marquee__item">Eternal Mage</span><span class="marquee__item">1000 Years of Wonder</span><span class="marquee__item">Frieren</span><span class="marquee__item">Crafted with Quiet Magic</span><span class="marquee__item">Spell Collector</span><span class="marquee__item">Beyond Journey's End</span><span class="marquee__item">Eternal Mage</span><span class="marquee__item">1000 Years of Wonder</span><span class="marquee__item">Frieren</span><span class="marquee__item">Crafted with Quiet Magic</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about__grid">
+      <div class="about__portrait reveal--left">
+        <div class="portrait__bg-shape" aria-hidden="true"></div>
+        <div class="portrait__frame">
+         <div class="portrait__clip">
+  <img src="images/portrait.jpg" alt="Your name">
+</div>
+          <div class="portrait__corner portrait__corner--tl"></div>
+          <div class="portrait__corner portrait__corner--br"></div>
+        </div>
+      </div>
+      <div class="about__text">
+        <span class="section__label reveal">✦ About Me</span>
+        <h2 class="section__title split-title reveal">A Mage Who<br>Collects Moments</h2>
+        <span class="line-draw reveal"></span><br>
+        <p class="section__body reveal reveal--delay-1">Like Frieren gathering spells across a thousand-year journey, I collect experiences, skills, and stories. Each project is a new chapter — some brief, some spanning years — all woven into the tapestry of who I am.</p>
+        <p class="section__body reveal reveal--delay-2" style="margin-top:1.2rem">My work lives at the intersection of craft and wonder. I believe the smallest details hold the most magic.</p>
+        <div class="stat__row">
+          <div class="stat reveal reveal--delay-1"><div class="stat__num">∞</div><div class="stat__label">Years of curiosity</div></div>
+          <div class="stat reveal reveal--delay-2"><div class="stat__num">III</div><div class="stat__label">Ongoing quests</div></div>
+          <div class="stat reveal reveal--delay-3"><div class="stat__num">XII</div><div class="stat__label">Spells mastered</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKS SLIDER -->
+      
+  <section class="gallery" id="works">
+    <div class="gallery__header reveal">
+      <div>
+        <span class="section__label">✦ Works &amp; Tales</span>
+        <h2 class="section__title split-title">Chapters of<br>the Journey</h2>
+      </div>
+      <p class="gallery__header-note">Each work carries a memory of the world as it was.</p>
+    </div>
+    <div class="slider__wrapper">
+      <div class="slider__track" id="sliderTrack">
+
+        <article class="slide__card">
+          <div class="slide__img">
+            <div class="slide__img-fill slide__img-fill--1"></div>
+            <div class="slide__img-icon"><svg width="70" height="80" viewBox="0 0 70 80" fill="none"><path d="M35 5C35 5 22 22 35 38C48 22 35 5 35 5Z" fill="rgba(143,163,184,.5)"/><path d="M35 22C35 22 18 29 18 44C33 38 35 22 35 22Z" fill="rgba(78,106,133,.4)"/><path d="M35 22C35 22 52 29 52 44C37 38 35 22 35 22Z" fill="rgba(78,106,133,.4)"/><line x1="35" y1="38" x2="35" y2="74" stroke="rgba(143,163,184,.5)" stroke-width="1.2"/><circle cx="35" cy="21" r="4" fill="rgba(143,163,184,.5)"/></svg></div>
+            <div class="slide__overlay"><span class="slide__overlay-text">✦ View Work</span></div>
+          </div>
+          <div class="slide__body">
+            <span class="slide__tag">✦ Enchantment</span>
+            <h3 class="slide__title">The Eternal Garden</h3>
+            <p class="slide__desc">A spell that preserves flowers in time, never wilting, never fading — a quiet kind of forever.</p>
+          </div>
+        </article>
+
+        <article class="slide__card">
+          <div class="slide__img">
+            <div class="slide__img-fill slide__img-fill--2"></div>
+            <div class="slide__img-icon"><svg width="70" height="70" viewBox="0 0 70 70" fill="none"><circle cx="35" cy="28" r="3" fill="rgba(143,163,184,.6)"/><ellipse cx="35" cy="14" rx="7" ry="14" fill="rgba(143,163,184,.35)" transform="rotate(0 35 28)"/><ellipse cx="35" cy="14" rx="7" ry="14" fill="rgba(78,106,133,.3)" transform="rotate(60 35 28)"/><ellipse cx="35" cy="14" rx="7" ry="14" fill="rgba(143,163,184,.35)" transform="rotate(120 35 28)"/><ellipse cx="35" cy="14" rx="7" ry="14" fill="rgba(78,106,133,.3)" transform="rotate(180 35 28)"/><ellipse cx="35" cy="14" rx="7" ry="14" fill="rgba(143,163,184,.35)" transform="rotate(240 35 28)"/><ellipse cx="35" cy="14" rx="7" ry="14" fill="rgba(78,106,133,.3)" transform="rotate(300 35 28)"/><line x1="35" y1="44" x2="35" y2="66" stroke="rgba(143,163,184,.4)" stroke-width="1.2"/></svg></div>
+            <div class="slide__overlay"><span class="slide__overlay-text">✦ View Work</span></div>
+          </div>
+          <div class="slide__body">
+            <span class="slide__tag">✦ Discovery</span>
+            <h3 class="slide__title">Mana of the North</h3>
+            <p class="slide__desc">Documented deep in a ruined library — a forgotten technique that bends light into memory.</p>
+          </div>
+        </article>
+
+        <article class="slide__card">
+          <div class="slide__img">
+            <div class="slide__img-fill slide__img-fill--3"></div>
+            <div class="slide__img-icon"><svg width="70" height="70" viewBox="0 0 70 70" fill="none"><path d="M35 8L42 26L60 26L46 38L52 56L35 44L18 56L24 38L10 26L28 26Z" fill="rgba(143,163,184,.4)"/><circle cx="35" cy="35" r="9" fill="rgba(78,106,133,.25)"/></svg></div>
+            <div class="slide__overlay"><span class="slide__overlay-text">✦ View Work</span></div>
+          </div>
+          <div class="slide__body">
+            <span class="slide__tag">✦ Legacy</span>
+            <h3 class="slide__title">A Thousand Sunsets</h3>
+            <p class="slide__desc">Collected from each town we passed through. Himmel always said they never get old.</p>
+          </div>
+        </article>
+
+        <article class="slide__card">
+          <div class="slide__img">
+            <div class="slide__img-fill slide__img-fill--4"></div>
+            <div class="slide__img-icon"><svg width="70" height="70" viewBox="0 0 70 70" fill="none"><rect x="18" y="10" width="34" height="50" rx="3" fill="rgba(143,163,184,.3)"/><line x1="26" y1="24" x2="44" y2="24" stroke="rgba(78,106,133,.5)" stroke-width="1.5"/><line x1="26" y1="33" x2="44" y2="33" stroke="rgba(78,106,133,.4)" stroke-width="1.2"/><line x1="26" y1="41" x2="38" y2="41" stroke="rgba(78,106,133,.4)" stroke-width="1.2"/></svg></div>
+            <div class="slide__overlay"><span class="slide__overlay-text">✦ View Work</span></div>
+          </div>
+          <div class="slide__body">
+            <span class="slide__tag">✦ Grimoire</span>
+            <h3 class="slide__title">Notes on Impermanence</h3>
+            <p class="slide__desc">A personal journal of what remains when everything else fades — written across centuries.</p>
+          </div>
+        </article>
+
+        <article class="slide__card">
+          <div class="slide__img">
+            <div class="slide__img-fill slide__img-fill--5"></div>
+            <div class="slide__img-icon"><svg width="70" height="80" viewBox="0 0 70 80" fill="none"><path d="M35 12C35 12 18 32 18 50C18 62 26 70 35 70C44 70 52 62 52 50C52 32 35 12 35 12Z" fill="rgba(143,163,184,.3)"/><path d="M35 30C35 30 24 46 24 55C24 62 29 66 35 66C41 66 46 62 46 55C46 46 35 30 35 30Z" fill="rgba(78,106,133,.2)"/></svg></div>
+            <div class="slide__overlay"><span class="slide__overlay-text">✦ View Work</span></div>
+          </div>
+          <div class="slide__body">
+            <span class="slide__tag">✦ Artifact</span>
+            <h3 class="slide__title">The Stillwater Vial</h3>
+            <p class="slide__desc">A spell compressed into glass — releasing it fills the air with the scent of a summer long past.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+    <div class="slider__controls">
+      <div class="slider__dots" id="sliderDots"></div>
+      <div class="slider__btns">
+        <button class="slider__btn" id="prevBtn" aria-label="Previous">&#8592;</button>
+        <button class="slider__btn" id="nextBtn" aria-label="Next">&#8594;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+
+  <div class="quote-section">
+    <div class="quote__circle quote__circle--1" aria-hidden="true"></div>
+    <div class="quote__circle quote__circle--2" aria-hidden="true"></div>
+    <span class="quote__mark" aria-hidden="true">"</span>
+    <p class="quote__text">Even a thousand years of life is not enough to know everything about this world. That is why the journey never truly ends.</p>
+    <p class="quote__attr">✦ &nbsp; Frieren, Mage of the Party &nbsp; ✦</p>
+  </div>
+
+  <!-- FEATURED FRIEREN SECTIONS -->
+       
+  <section class="featured" id="frieren">
+    <div class="featured__img-side reveal--left">
+     <img src="Frieren_Img1.png" alt="Frieren" class="featured__img">
+      <div class="featured__img-overlay"></div>
+    </div>
+    <div class="featured__text-side">
+      <span class="featured__tag reveal">✦ The Silver Elf</span>
+      <h2 class="featured__title split-title reveal">She Who Outlives<br>Every Farewell</h2>
+      <span class="line-draw reveal"></span><br>
+      <p class="featured__body reveal reveal--delay-1">Frieren is a mage who journeyed with heroes to defeat the Demon King — yet found herself adrift when the adventure ended and time moved on without her.</p>
+      <p class="featured__body reveal reveal--delay-2">Her story is one of learning to treasure the fleeting warmth of those who pass through her immortal life. Every spell she keeps is a memory she refused to let go.</p>
+      <a href="#" class="featured__link reveal reveal--delay-3">Read more &nbsp; &#8594;</a>
+    </div>
+  </section>
+
+  <section class="featured featured--flip">
+    <div class="featured__img-side reveal--right">
+      <img src="Frieren_Img2.jpg" alt="Frieren" class="featured__img">
+        <div class="featured__img-overlay"></div>
+    </div>
+    <div class="featured__text-side">
+      <span class="featured__tag reveal">✦ Inspired By</span>
+      <h2 class="featured__title split-title reveal">A Life Spent<br>Gathering Flowers</h2>
+      <span class="line-draw reveal"></span><br>
+      <p class="featured__body reveal reveal--delay-1">This site is inspired by Frieren's quiet, deliberate way of moving through the world — observing, collecting, remembering.</p>
+      <p class="featured__body reveal reveal--delay-2">Like her, I believe the small things are the ones worth keeping: a good conversation, a solved problem, a moment of unexpected beauty.</p>
+      <a href="#contact" class="featured__link reveal reveal--delay-3">Get in touch &nbsp; &#8594;</a>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills" id="skills">
+    <div class="skills__inner">
+      <span class="section__label reveal">✦ My Magic</span>
+      <h2 class="section__title split-title reveal">Spells I've Gathered</h2>
+      <div class="skills__grid">
+        <div class="skill__card reveal"><span class="skill__num">01</span><span class="skill__icon">✾</span><span class="skill__name">Craft &amp; Design</span><p class="skill__desc">Like selecting the right spell — visual craft that speaks without words, precise and considered.</p></div>
+        <div class="skill__card reveal reveal--delay-1"><span class="skill__num">02</span><span class="skill__icon">⟡</span><span class="skill__name">Storytelling</span><p class="skill__desc">Every great journey deserves to be told. I weave narrative into everything, from captions to campaigns.</p></div>
+        <div class="skill__card reveal reveal--delay-2"><span class="skill__num">03</span><span class="skill__icon">✦</span><span class="skill__name">World-Building</span><p class="skill__desc">Constructing spaces that feel lived-in, meaningful, and worth exploring.</p></div>
+        <div class="skill__card reveal reveal--delay-1"><span class="skill__num">04</span><span class="skill__icon">◈</span><span class="skill__name">Ancient Knowledge</span><p class="skill__desc">Research and archiving: the quiet discipline of collecting what others have forgotten to preserve.</p></div>
+        <div class="skill__card reveal reveal--delay-2"><span class="skill__num">05</span><span class="skill__icon">❧</span><span class="skill__name">Patience &amp; Depth</span><p class="skill__desc">Some spells take a hundred years to master. The best things deserve unhurried attention.</p></div>
+        <div class="skill__card reveal reveal--delay-3"><span class="skill__num">06</span><span class="skill__icon">✿</span><span class="skill__name">Growth Magic</span><p class="skill__desc">Collecting new abilities, nurturing old ones. The spell-book is never full.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact__bg-text" aria-hidden="true">Hello</div>
+    <div class="contact__inner">
+      <span class="section__label reveal">✦ Send a Message</span>
+      <h2 class="section__title split-title reveal">Shall We Journey<br>Together?</h2>
+      <p class="section__body reveal" style="margin:0 auto;text-align:center">Whether you have a quest in mind or simply wish to share a cup of tea, I would love to hear from you.</p>
+      <nav class="contact__links reveal">
+        <a href="mailto:you@example.com" class="contact__link">✦ Email</a>
+        <a href="#" class="contact__link">✦ Twitter</a>
+        <a href="#" class="contact__link">✦ Instagram</a>
+        <a href="#" class="contact__link">✦ LinkedIn</a>
+      </nav>
+    </div>
+  </section>
+
+  <footer>
+    <p class="footer__logo">✦ &nbsp; Isekai Mage &nbsp; ✦</p>
+    <p class="footer__copy">Crafted with quiet magic · A journey without end</p>
+  </footer>
+
+  <script src="Frieren.js" defer></script>
+</body>
+</html>
