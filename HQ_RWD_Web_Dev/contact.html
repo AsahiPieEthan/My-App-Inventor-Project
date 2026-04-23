@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us – HQ White Coffee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="HQ.css">
+  <style>
+    /* ── HERO ── */
+    .contact-hero { text-align: center; padding: clamp(50px,8vw,80px) 20px 50px; background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,.1) 0%, transparent 65%); }
+    .contact-hero h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(2rem,5vw,3.6rem); color: var(--cream); font-weight: 400; line-height: 1.15; }
+    .contact-hero h1 em { color: var(--gold); font-style: italic; }
+    .contact-hero p { color: var(--text-muted); max-width: 500px; margin: 0 auto; font-size: 15px; }
+
+    /* ── ACTION CARDS ── */
+    .action-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px,100%), 1fr)); gap: 24px; max-width: 860px; margin: 0 auto; padding: 50px clamp(16px,4vw,30px) 0; }
+    .action-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: clamp(24px,4vw,36px) 28px; text-align: center; transition: transform .3s, border-color .3s; }
+    .action-card:hover { transform: translateY(-6px); border-color: rgba(201,168,76,.55); }
+    .action-icon { font-size: 36px; margin-bottom: 16px; }
+    .action-card h3 { font-family: 'Montserrat', sans-serif; color: var(--cream); margin-bottom: 10px; font-size: 1.2rem; }
+    .action-card p { color: var(--text-muted); font-size: 14px; margin-bottom: 22px; }
+    .action-btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; border-radius: 30px; font-size: 13px; font-weight: 700; letter-spacing: .5px; border: 1px solid var(--gold); color: var(--gold); background: transparent; cursor: pointer; font-family: 'Montserrat', sans-serif; transition: all .25s; }
+    .action-btn:hover { background: var(--gold); color: #000; }
+    .action-btn.filled { background: var(--gold); color: #000; border-color: var(--gold); }
+    .action-btn.filled:hover { background: var(--gold-light); }
+
+    /* ── INFO + MAP ── */
+    .contact-main { display: grid; grid-template-columns: 1fr 1.3fr; gap: 50px; max-width: 1100px; margin: 60px auto; padding: 0 clamp(16px,4vw,40px); }
+    .contact-info-block h2 { font-family: 'Montserrat', sans-serif; color: var(--gold); font-size: clamp(1.4rem,3vw,1.8rem); margin-bottom: 30px; }
+    .info-item { display: flex; gap: 18px; align-items: flex-start; margin-bottom: 28px; }
+    .info-icon { flex: 0 0 44px; height: 44px; background: rgba(201,168,76,.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; border: 1px solid var(--border); }
+    .info-item strong { display: block; color: var(--cream); margin-bottom: 4px; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; }
+    .info-item p { color: var(--text-muted); font-size: 14px; }
+    .info-item a { color: var(--gold); text-decoration: none; }
+    .info-item a:hover { text-decoration: underline; }
+    .hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 20px; margin-top: 6px; }
+    .hours-grid span { color: var(--text-muted); font-size: 14px; }
+    .hours-grid span:nth-child(even) { color: var(--cream); text-align: right; }
+    .map-block iframe { width: 100%; height: 380px; border-radius: 14px; border: 1px solid var(--border); }
+
+    /* ── SOCIAL ── */
+    .social-section { text-align: center; padding: 60px 20px; border-top: 1px solid var(--border); }
+    .social-section h2 { font-family: 'Montserrat', sans-serif; color: var(--gold); font-size: clamp(1.3rem,3vw,1.6rem); margin-bottom: 10px; }
+    .social-section p { color: var(--text-muted); margin-bottom: 28px; font-size: 15px; }
+    .social-link { display: inline-flex; align-items: center; gap: 10px; padding: 12px 28px; background: #1877f2; color: #fff; text-decoration: none; border-radius: 30px; font-weight: 700; font-size: 14px; transition: opacity .2s; }
+    .social-link:hover { opacity: .85; }
+    .social-link img { width: 20px; height: 20px; filter: brightness(0) invert(1); }
+
+    /* ── MODALS ── */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.82); z-index: 2000; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
+    .modal-overlay.open { display: flex; }
+    .modal { background: #1a1610; border: 1px solid var(--border); border-radius: 16px; max-width: 540px; width: 100%; padding: clamp(24px,5vw,42px); position: relative; animation: modalIn .3s ease; margin: auto; }
+    @keyframes modalIn { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+    .modal-close { position: absolute; top: 18px; right: 22px; background: none; border: none; color: var(--text-muted); font-size: 22px; cursor: pointer; transition: color .2s; }
+    .modal-close:hover { color: var(--cream); }
+    .modal-eyebrow { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .modal h2 { font-family: 'Montserrat', sans-serif; color: var(--cream); margin-bottom: 6px; font-size: clamp(1.3rem,4vw,1.7rem); }
+    .modal > .modal-sub { color: var(--text-muted); font-size: 14px; margin-bottom: 30px; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 7px; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; background: #0f0d0b; border: 1px solid var(--border); color: var(--cream); padding: 11px 14px; border-radius: 8px; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 300; transition: border-color .2s; outline: none; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
+    .form-group select option { background: #1a1610; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .submit-btn { width: 100%; padding: 14px; background: var(--gold); border: none; border-radius: 30px; color: #000; font-weight: 700; font-size: 15px; cursor: pointer; font-family: 'Montserrat', sans-serif; letter-spacing: .5px; margin-top: 8px; transition: background .25s; }
+    .submit-btn:hover { background: var(--gold-light); }
+    .success-msg { display: none; text-align: center; padding: 20px 0; }
+    .success-msg .icon { font-size: 50px; margin-bottom: 16px; }
+    .success-msg h3 { font-family: 'Montserrat', sans-serif; color: var(--gold); margin-bottom: 10px; font-size: 1.4rem; }
+    .success-msg p { color: var(--text-muted); font-size: 14px; }
+
+    @media (max-width: 760px) {
+      .contact-main { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hours-grid { grid-template-columns: 1fr; }
+      .hours-grid span:nth-child(even) { text-align: left; color: var(--text-muted); margin-bottom: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BANNER -->
+  <div class="top-banner">
+    <img src="HQ_trademark.png" class="banner-img" alt="HQ Banner">
+    <a href="https://www.facebook.com/people/%E6%80%A1%E5%A0%A1%E9%A4%90%E5%8E%85Yi-POH-Hainan-CHOP/100063962281068/" target="_blank" class="facebook-link">
+      <img src="https://www.svgrepo.com/show/419926/facebook-fb-social-icon.svg" alt="Facebook"> <span class="fb-text">Facebook</span>
+    </a>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <nav class="nav-links" id="navMenu">
+      <ul>
+        <li><a href="index.html" data-en="Home" data-cn="主页">Home</a></li>
+        <li><a href="Menu.html" data-en="Menu" data-cn="菜单">Menu</a></li>
+        <li><a href="about.html" data-en="About Us" data-cn="关于我们">About Us</a></li>
+        <li><a href="contact.html" class="active" data-en="Contact Us" data-cn="联系我们">Contact Us</a></li>
+      </ul>
+    </nav>
+    <div class="language">
+      <button onclick="changeLang('en')" id="btn-en" class="lang-active">EN</button>
+      <button onclick="changeLang('cn')" id="btn-cn">中文</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="contact-hero">
+    <p class="eyebrow-label" data-en="Station 18, Ipoh" data-cn="18站，怡保">Station 18, Ipoh</p>
+    <h1 data-en="Come <em>Find</em> Us" data-cn="来<em>找</em>我们">Come <em>Find</em> Us</h1>
+    <div class="gold-rule"></div>
+    <p data-en="We're always happy to hear from you — whether you have a question, want to book a table, or just want to say hello."
+       data-cn="我们随时欢迎您的来电——无论是有疑问、想预订餐桌，还是只是想打个招呼。">
+      We're always happy to hear from you — whether you have a question, want to book a table, or just want to say hello.
+    </p>
+  </div>
+
+  <!-- ACTION CARDS -->
+  <div class="action-cards">
+    <div class="action-card">
+      <div class="action-icon">📋</div>
+      <h3 data-en="Send an Inquiry" data-cn="发送询问">Send an Inquiry</h3>
+      <p data-en="Questions about our menu, catering, or events? We'll get back to you within 24 hours."
+         data-cn="对菜单、餐饮或活动有疑问？我们将在24小时内回复您。">Questions about our menu, catering, or events? We'll get back to you within 24 hours.</p>
+      <button class="action-btn" onclick="openModal('inquiry')" data-en="Send Inquiry →" data-cn="发送询问 →">Send Inquiry →</button>
+    </div>
+    <div class="action-card">
+      <div class="action-icon">🗓️</div>
+      <h3 data-en="Reserve a Table" data-cn="预订餐桌">Reserve a Table</h3>
+      <p data-en="Planning to visit? Book your spot and we'll make sure everything is ready for you."
+         data-cn="计划来访？预订座位，我们将为您做好一切准备。">Planning to visit? Book your spot and we'll make sure everything is ready for you.</p>
+      <button class="action-btn filled" onclick="openModal('reservation')" data-en="Reserve Now →" data-cn="立即预订 →">Reserve Now →</button>
+    </div>
+  </div>
+
+  <!-- INFO + MAP -->
+  <div class="contact-main">
+    <div class="contact-info-block">
+      <h2 data-en="Our Details" data-cn="联系详情">Our Details</h2>
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div>
+          <strong data-en="Location" data-cn="地址">Location</strong>
+          <p>Yi-POH Hainan Chop<br>Station 18, Ipoh, Perak, Malaysia</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📞</div>
+        <div>
+          <strong data-en="Phone" data-cn="电话">Phone</strong>
+          <p><a href="tel:+60123456789">012-345 6789</a></p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">💬</div>
+        <div>
+          <strong>WhatsApp</strong>
+          <p><a href="https://wa.me/60123456789" target="_blank" data-en="Message us on WhatsApp" data-cn="通过WhatsApp联系我们">Message us on WhatsApp</a></p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">⏰</div>
+        <div>
+          <strong data-en="Opening Hours" data-cn="营业时间">Opening Hours</strong>
+          <div class="hours-grid">
+            <span data-en="Monday – Friday" data-cn="周一至周五">Monday – Friday</span><span>7:00 AM – 9:00 PM</span>
+            <span data-en="Saturday" data-cn="周六">Saturday</span><span>7:00 AM – 9:00 PM</span>
+            <span data-en="Sunday" data-cn="周日">Sunday</span><span>7:00 AM – 9:00 PM</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="map-block">
+      <iframe src="https://maps.google.com/maps?q=station%2018%20ipoh&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy" allowfullscreen title="HQ White Coffee Location"></iframe>
+    </div>
+  </div>
+
+  <!-- SOCIAL -->
+  <div class="social-section">
+    <h2 data-en="Stay Connected" data-cn="保持联系">Stay Connected</h2>
+    <p data-en="Follow us for daily specials, behind-the-scenes, and community updates."
+       data-cn="关注我们，获取每日特惠、幕后故事和社区动态。">Follow us for daily specials, behind-the-scenes, and community updates.</p>
+    <a href="https://www.facebook.com/people/%E6%80%A1%E5%A0%A1%E9%A4%90%E5%8E%85Yi-POH-Hainan-CHOP/100063962281068/" target="_blank" class="social-link">
+      <img src="https://www.svgrepo.com/show/419926/facebook-fb-social-icon.svg" alt="Facebook">
+      <span data-en="Visit Us on Facebook" data-cn="在Facebook关注我们">Visit Us on Facebook</span>
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p data-en="© 2025 HQ White Coffee. All rights reserved." data-cn="© 2025 HQ 白咖啡。版权所有。">&copy; 2025 HQ White Coffee. All rights reserved.</p>
+  </footer>
+
+  <!-- INQUIRY MODAL -->
+  <div class="modal-overlay" id="inquiryModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('inquiry')">✕</button>
+      <div id="inquiryForm">
+        <p class="modal-eyebrow" data-en="We'd love to hear from you" data-cn="期待您的来信">We'd love to hear from you</p>
+        <h2 data-en="Send an Inquiry" data-cn="发送询问">Send an Inquiry</h2>
+        <p class="modal-sub" data-en="Fill in the form below and we'll respond within 24 hours." data-cn="填写以下表格，我们将在24小时内回复。">Fill in the form below and we'll respond within 24 hours.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label data-en="Full Name *" data-cn="全名 *">Full Name *</label>
+            <input type="text" placeholder="Your name" id="inq-name">
+          </div>
+          <div class="form-group">
+            <label data-en="Phone / Email *" data-cn="电话 / 电邮 *">Phone / Email *</label>
+            <input type="text" placeholder="How to reach you" id="inq-contact">
+          </div>
+        </div>
+        <div class="form-group">
+          <label data-en="Subject *" data-cn="主题 *">Subject *</label>
+          <select id="inq-subject">
+            <option value="" data-en="Select a topic" data-cn="选择主题">Select a topic</option>
+            <option data-en="Menu & Food Allergies" data-cn="菜单与食物过敏">Menu & Food Allergies</option>
+            <option data-en="Catering & Events" data-cn="餐饮与活动">Catering & Events</option>
+            <option data-en="Feedback & Suggestions" data-cn="反馈与建议">Feedback & Suggestions</option>
+            <option data-en="Corporate Orders" data-cn="企业订单">Corporate Orders</option>
+            <option data-en="Partnership" data-cn="合作">Partnership</option>
+            <option data-en="Other" data-cn="其他">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label data-en="Your Message *" data-cn="您的留言 *">Your Message *</label>
+          <textarea placeholder="Tell us more..." rows="4" id="inq-message"></textarea>
+        </div>
+        <div class="form-group">
+          <label data-en="Preferred Reply Method" data-cn="首选回复方式">Preferred Reply Method</label>
+          <select id="inq-reply">
+            <option data-en="WhatsApp" data-cn="WhatsApp">WhatsApp</option>
+            <option data-en="Phone Call" data-cn="电话">Phone Call</option>
+            <option data-en="Email" data-cn="电邮">Email</option>
+          </select>
+        </div>
+        <button class="submit-btn" onclick="submitInquiry()" data-en="Send Message" data-cn="发送留言">Send Message</button>
+      </div>
+      <div class="success-msg" id="inquirySuccess">
+        <div class="icon">✉️</div>
+        <h3 data-en="Message received!" data-cn="留言已收到！">Message received!</h3>
+        <p data-en="Thank you for reaching out. We'll get back to you within 24 hours via your preferred method."
+           data-cn="感谢您的联系，我们将在24小时内通过您首选的方式回复您。">Thank you for reaching out. We'll get back to you within 24 hours via your preferred method.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESERVATION MODAL -->
+  <div class="modal-overlay" id="reservationModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('reservation')">✕</button>
+      <div id="reservationForm">
+        <p class="modal-eyebrow" data-en="Book your spot" data-cn="预订您的座位">Book your spot</p>
+        <h2 data-en="Reserve a Table" data-cn="预订餐桌">Reserve a Table</h2>
+        <p class="modal-sub" data-en="We'll confirm your booking via WhatsApp within a few hours." data-cn="我们将在数小时内通过WhatsApp确认您的预订。">We'll confirm your booking via WhatsApp within a few hours.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label data-en="Full Name *" data-cn="全名 *">Full Name *</label>
+            <input type="text" placeholder="e.g. Ahmad Rashid" id="res-name">
+          </div>
+          <div class="form-group">
+            <label data-en="Phone Number *" data-cn="电话号码 *">Phone Number *</label>
+            <input type="tel" placeholder="01X-XXXXXXX" id="res-phone">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label data-en="Date *" data-cn="日期 *">Date *</label>
+            <input type="date" id="res-date">
+          </div>
+          <div class="form-group">
+            <label data-en="Time *" data-cn="时间 *">Time *</label>
+            <input type="time" id="res-time" min="07:00" max="21:00">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label data-en="Party Size *" data-cn="人数 *">Party Size *</label>
+            <select id="res-pax">
+              <option value="" data-en="Select pax" data-cn="选择人数">Select pax</option>
+              <option data-en="1 person" data-cn="1人">1 person</option>
+              <option data-en="2 persons" data-cn="2人">2 persons</option>
+              <option data-en="3–4 persons" data-cn="3–4人">3–4 persons</option>
+              <option data-en="5–6 persons" data-cn="5–6人">5–6 persons</option>
+              <option data-en="7+ persons" data-cn="7人以上">7+ persons</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label data-en="Occasion (Optional)" data-cn="场合（可选）">Occasion (Optional)</label>
+            <select id="res-occasion">
+              <option value="" data-en="None" data-cn="无">None</option>
+              <option data-en="Birthday" data-cn="生日">Birthday</option>
+              <option data-en="Anniversary" data-cn="周年纪念">Anniversary</option>
+              <option data-en="Business Meeting" data-cn="商务会议">Business Meeting</option>
+              <option data-en="Family Gathering" data-cn="家庭聚会">Family Gathering</option>
+              <option data-en="Other" data-cn="其他">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label data-en="Special Requests" data-cn="特殊要求">Special Requests</label>
+          <textarea placeholder="Dietary needs, high chair, etc." rows="3" id="res-notes"></textarea>
+        </div>
+        <button class="submit-btn" onclick="submitReservation()" data-en="Confirm Reservation" data-cn="确认预订">Confirm Reservation</button>
+      </div>
+      <div class="success-msg" id="reservationSuccess">
+        <div class="icon">☕</div>
+        <h3 data-en="Table reserved!" data-cn="餐桌已预订！">Table reserved!</h3>
+        <p data-en="We'll WhatsApp you shortly to confirm the details. See you at HQ White Coffee Station!"
+           data-cn="我们将尽快通过WhatsApp确认详情，期待在HQ白咖啡馆见到您！">We'll WhatsApp you shortly to confirm the details. See you at HQ White Coffee Station!</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="HQ.js"></script>
+  <script>
+    function openModal(type) {
+      document.getElementById(type + 'Modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(type) {
+      document.getElementById(type + 'Modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    ['inquiryModal','reservationModal'].forEach(id => {
+      document.getElementById(id).addEventListener('click', function(e) {
+        if (e.target === this) closeModal(id.replace('Modal',''));
+      });
+    });
+    function submitInquiry() {
+      const name = document.getElementById('inq-name').value.trim();
+      const contact = document.getElementById('inq-contact').value.trim();
+      const subject = document.getElementById('inq-subject').value;
+      const message = document.getElementById('inq-message').value.trim();
+      if (!name || !contact || !subject || !message) { alert('Please fill in all required fields.'); return; }
+      document.getElementById('inquiryForm').style.display = 'none';
+      document.getElementById('inquirySuccess').style.display = 'block';
+    }
+    function submitReservation() {
+      const name = document.getElementById('res-name').value.trim();
+      const phone = document.getElementById('res-phone').value.trim();
+      const date = document.getElementById('res-date').value;
+      const time = document.getElementById('res-time').value;
+      const pax = document.getElementById('res-pax').value;
+      if (!name || !phone || !date || !time || !pax) { alert('Please fill in all required fields.'); return; }
+      document.getElementById('reservationForm').style.display = 'none';
+      document.getElementById('reservationSuccess').style.display = 'block';
+    }
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('res-date').min = today;
+  </script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HQ White Coffee</title>
+  <link rel="stylesheet" href="HQ.css">
+  <link rel="icon" type="image/jpeg" href="Yipoh_Hainan_Chop.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- TOP BANNER -->
+  <div class="top-banner">
+    <img src="HQ_trademark.png" class="banner-img" alt="HQ White Coffee">
+    <a href="https://www.facebook.com/people/%E6%80%A1%E5%A0%A1%E9%A4%90%E5%8E%85Yi-POH-Hainan-CHOP/100063962281068/"
+       target="_blank" class="facebook-link">
+      <img src="https://www.svgrepo.com/show/419926/facebook-fb-social-icon.svg" alt="Facebook">
+      <span class="fb-text">Facebook</span>
+    </a>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="navMenu">
+      <ul>
+        <li><a href="index.html" class="active" data-en="Home" data-cn="主页">Home</a></li>
+        <li><a href="Menu.html" data-en="Menu" data-cn="菜单">Menu</a></li>
+        <li><a href="about.html" data-en="About Us" data-cn="关于我们">About Us</a></li>
+        <li><a href="contact.html" data-en="Contact Us" data-cn="联系我们">Contact Us</a></li>
+      </ul>
+    </nav>
+    <div class="language">
+      <button onclick="changeLang('en')" id="btn-en" class="lang-active">EN</button>
+      <button onclick="changeLang('cn')" id="btn-cn">中文</button>
+    </div>
+  </header>
+
+  <!-- HERO SLIDER -->
+  <div class="hero">
+    <div class="slides">
+      <img src="Image_hero_slide.png" class="slide" alt="HQ White Coffee">
+      <img src="Img_slider2.png"     class="slide" alt="HQ White Coffee">
+      <img src="Img_slider33.png"     class="slide" alt="HQ White Coffee">
+    </div>
+    <button class="prev" aria-label="Previous slide">⬅</button>
+    <button class="next" aria-label="Next slide">➡</button>
+  </div>
+
+  <!-- HOME SECTION -->
+  <section id="home" class="center-section">
+    <p class="eyebrow-label">Est. Ipoh, Perak</p>
+    <h1 data-en="Welcome to <span>HQ White Coffee</span> Station"
+        data-cn="欢迎来到 <span>HQ 白咖啡</span> 馆">
+      Welcome to <span>HQ White Coffee</span> Station
+    </h1>
+    <div class="gold-rule"></div>
+    <p data-en="Experience the rich heritage of HQ White Coffee Station through our curated selection of artisanal brews and local favourites — every cup, every bite tells a story."
+       data-cn="通过我们精心策划的手工冲泡精选和本地最爱，体验 HQ 白咖啡馆丰富的文化遗产——每一杯，每一口都诉说着一段故事。">
+      Experience the rich heritage of HQ White Coffee Station through our curated selection of artisanal brews and local favourites — every cup, every bite tells a story.
+    </p>
+    <div class="hero-btns">
+      <a href="Menu.html" class="menu-btn" data-en="Explore Our Menu →" data-cn="浏览我们的菜单 →">Explore Our Menu <span class="arrow">→</span></a>
+      <a href="#about" class="outline-btn" data-en="Our Story" data-cn="我们的故事">Our Story</a>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="divider"><div></div><span>✦</span><div></div></div>
+
+  <!-- MENU SECTION -->
+  <section id="menu">
+    <div class="menu-hero">
+      <p class="eyebrow-label" data-en="Our Offerings" data-cn="我们的特色">Our Offerings</p>
+      <h2 data-en="Our Menu" data-cn="我们的菜单">Our Menu</h2>
+      <div class="gold-rule"></div>
+      <p class="section-desc" data-en="From time-honoured white coffee to Hainanese classics and western favourites."
+         data-cn="从传统白咖啡到海南经典菜肴和西式美食。">
+        From time-honoured white coffee to Hainanese classics and western favourites.
+      </p>
+    </div>
+
+    <div class="menu-container">
+      <div class="menu-item">
+        <img src="https://i.pinimg.com/originals/85/53/f3/8553f3a6660cd679fc8c3149c0f61c37.jpg" alt="Signature White Coffee">
+        <h3 data-en="Signature White Coffee" data-cn="招牌白咖啡">Signature White Coffee</h3>
+      </div>
+      <div class="menu-item">
+        <img src="https://tse1.mm.bing.net/th/id/OIP.jmknKfu8XlsM0zszu6Qu3gHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Signature Milk Tea">
+        <h3 data-en="Signature Milk Tea" data-cn="招牌奶茶">Signature Milk Tea</h3>
+      </div>
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?w=500&q=80" alt="Cham Latte">
+        <h3 data-en="Signature Cham Latte" data-cn="招牌鸳鸯拿铁">Signature Cham Latte</h3>
+      </div>
+    </div>
+
+    <div class="menu-container">
+      <div class="menu-item">
+        <img src="https://eatbook.sg/wp-content/uploads/2024/09/treasure-toast-homemade-kaya-butter-toast.jpg" alt="Kaya Toast">
+        <h3 data-en="Kaya Butter Toast" data-cn="咖椰牛油吐司">Kaya Butter Toast</h3>
+      </div>
+      <div class="menu-item">
+        <img src="https://justthairecipes.com/wp-content/uploads/2025/07/hainan-chicken-rice-served-with-sauces.png" alt="Hainanese Chicken Rice">
+        <h3 data-en="Hainanese Chicken Rice" data-cn="海南鸡饭">Hainanese Chicken Rice</h3>
+      </div>
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1612874742237-6526221588e3?w=400&q=75" alt="Chicken Carbonara">
+        <h3 data-en="Chicken Carbonara" data-cn="鸡肉卡邦尼">Chicken Carbonara</h3>
+      </div>
+    </div>
+
+    <div class="menu-container">
+      <div class="menu-item">
+        <img src="HQ_Chicken_Chop.png" alt="Chicken Chop">
+        <h3 data-en="HQ Chicken Chop" data-cn="HQ 炸鸡扒">HQ Chicken Chop</h3>
+      </div>
+      <div class="menu-item">
+        <img src="https://images.services.kitchenstories.io/UY89c4f471NaK1C-BQ07FGZ_qVA=/3840x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R131-final-photo-3-sg.jpg" alt="Aglio Olio">
+        <h3 data-en="Spaghetti Aglio Olio" data-cn="蒜香意面">Spaghetti Aglio Olio</h3>
+      </div>
+      <div class="menu-item">
+        <img src="https://feelgoodfoodie.net/wp-content/uploads/2023/04/Pasta-Bolognese-11.jpg" alt="Beef Bolognese">
+        <h3 data-en="Beef Bolognese" data-cn="牛肉波隆纳肉酱面">Beef Bolognese</h3>
+      </div>
+    </div>
+
+    <div class="menu-cta">
+      <h3 data-en="Discover our full menu" data-cn="查看完整菜单">Discover our full menu</h3>
+      <a href="Menu.html" class="menu-btn" data-en="See Full Menu →" data-cn="查看完整菜单 →">See Full Menu <span class="arrow">→</span></a>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="divider"><div></div><span>✦</span><div></div></div>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="center-section">
+    <div class="about-container">
+      <div class="about-1">
+        <img src="About_History.png"
+             alt="HQ White Coffee" class="about-logo">
+      </div>
+      <div class="about-2">
+        <p class="eyebrow-label" data-en="Our Heritage" data-cn="我们的传承">Our Heritage</p>
+        <h2 data-en="Our History" data-cn="我们的历史">Our History</h2>
+        <p data-en="Founded to preserve the warmth of Hainanese kopitiam culture, HQ White Coffee Station is more than a café — it's a gathering place rooted in tradition, community, and the perfect cup."
+           data-cn="HQ 白咖啡馆的创立旨在传承海南咖啡馆文化的温暖，它不仅仅是一家咖啡馆——更是一个植根于传统、社区和完美咖啡的聚集地。">
+          Founded to preserve the warmth of Hainanese kopitiam culture, HQ White Coffee Station is more than a café — it's a gathering place rooted in tradition, community, and the perfect cup.
+        </p>
+        <a href="about.html" class="about-btn" data-en="Explore Our Story →" data-cn="探索我们的故事 →">Explore Our Story <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="divider"><div></div><span>✦</span><div></div></div>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="contact-section">
+    <div class="contact-container">
+      <div class="contact-info">
+        <p class="eyebrow-label" data-en="Visit Us" data-cn="来访我们">Visit Us</p>
+        <h2 data-en="Find Our Location" data-cn="找到我们">Find Our Location</h2>
+        <p class="contact-desc" data-en="Visit HQ White Coffee Station at Station 18, Ipoh. Enjoy authentic white coffee and local delicacies in a warm, familiar atmosphere."
+           data-cn="欢迎来到槟城 18 号站的 HQ 白咖啡馆。在温馨熟悉的氛围中享受正宗白咖啡和本地美食。">
+          Visit HQ White Coffee Station at Station 18, Ipoh. Enjoy authentic white coffee and local delicacies in a warm, familiar atmosphere.
+        </p>
+
+        <div class="contact-item">
+          <span class="icon">📍</span>
+          <div>
+            <strong data-en="Location" data-cn="地址">Location</strong>
+            <p>Station 18, Ipoh, Perak</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="icon">📞</span>
+          <div>
+            <strong data-en="Contact" data-cn="联系方式">Contact</strong>
+            <p>012-345 6789</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="icon">⏰</span>
+          <div>
+            <strong data-en="Hours" data-cn="营业时间">Hours</strong>
+            <p data-en="Mon – Sun &nbsp;7:00 AM – 9:00 PM" data-cn="周一至周日 早上7点 – 晚上9点">Mon – Sun &nbsp;7:00 AM – 9:00 PM</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="icon">💬</span>
+          <div>
+            <strong data-en="Follow Us" data-cn="关注我们">Follow Us</strong>
+            <p>
+              <a href="https://www.facebook.com/people/%E6%80%A1%E5%A0%A1%E9%A4%90%E5%8E%85Yi-POH-Hainan-CHOP/100063962281068/"
+                 target="_blank" class="facebook-link" style="position:static;color:var(--gold);font-size:14px;">
+                <img src="https://www.svgrepo.com/show/419926/facebook-fb-social-icon.svg" alt="Facebook" style="width:18px;height:18px;">
+                Yi-POH Hainan Chop on Facebook
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-map">
+        <iframe
+          src="https://maps.google.com/maps?q=station%2018%20ipoh&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          width="100%" height="360"
+          style="border:0;"
+          allowfullscreen loading="lazy"
+          title="HQ White Coffee Location">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <p data-en="© 2025 HQ White Coffee. All rights reserved." data-cn="© 2025 HQ 白咖啡。版权所有。">&copy; 2025 HQ White Coffee. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="HQ.js"></script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us – HQ White Coffee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="HQ.css">
+  <style>
+    /* ── HERO ── */
+    .about-hero {
+      position: relative; overflow: hidden;
+      height: clamp(280px, 50vw, 520px);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .about-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(.35); }
+    .about-hero-content { position: relative; text-align: center; padding: 20px; }
+    .about-hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2rem, 6vw, 4.2rem); color: var(--cream); font-weight: 400; line-height: 1.1;
+    }
+    .about-hero h1 em { color: var(--gold); font-style: italic; }
+
+    /* ── INTRO ── */
+    .intro-section { max-width: 800px; margin: clamp(40px,8vw,80px) auto; padding: 0 clamp(20px,5vw,30px); text-align: center; }
+    .intro-section p { font-size: clamp(.95rem, 2.5vw, 1.2rem); color: #ccc; line-height: 1.8; font-style: italic; font-family: 'Montserrat', sans-serif; }
+
+    /* ── TIMELINE ── */
+    .story-section { padding: 0 clamp(16px,4vw,20px) 80px; max-width: 1100px; margin: 0 auto; }
+    .story-section h2 { font-family: 'Montserrat', sans-serif; font-size: clamp(1.6rem, 4vw, 2.6rem); color: var(--gold); text-align: center; margin-bottom: 60px; }
+    .timeline { position: relative; padding: 0 0 20px; }
+    .timeline::before {
+      content: ''; position: absolute; left: 50%; transform: translateX(-50%);
+      top: 0; bottom: 0; width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--border) 10%, var(--border) 90%, transparent);
+    }
+    .timeline-item { display: flex; gap: 40px; margin-bottom: 60px; align-items: flex-start; opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; }
+    .timeline-item.visible { opacity: 1; transform: translateY(0); }
+    .timeline-item:nth-child(odd) { flex-direction: row; }
+    .timeline-item:nth-child(even) { flex-direction: row-reverse; }
+    .timeline-text { flex: 1; text-align: right; padding-right: 40px; }
+    .timeline-item:nth-child(even) .timeline-text { text-align: left; padding-right: 0; padding-left: 40px; }
+    .timeline-dot { flex: 0 0 auto; width: 16px; height: 16px; border-radius: 50%; background: var(--gold); border: 3px solid var(--dark); box-shadow: 0 0 0 1px var(--gold); margin-top: 6px; position: relative; z-index: 1; align-self: flex-start; }
+    .timeline-img { flex: 1; padding-left: 40px; }
+    .timeline-item:nth-child(even) .timeline-img { padding-left: 0; padding-right: 40px; }
+    .timeline-img img { width: 100%; height: 240px; object-fit: cover; border-radius: 10px; border: 1px solid var(--border); }
+    .timeline-year { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .timeline-text h3 { font-family: 'Montserrat', sans-serif; font-size: clamp(1.1rem,3vw,1.4rem); color: var(--cream); margin-bottom: 10px; }
+    .timeline-text p { color: var(--text-muted); font-size: 15px; }
+
+    /* ── VALUES ── */
+    .values-section { background: #0a0806; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: clamp(40px,8vw,80px) clamp(16px,4vw,40px); }
+    .values-section h2 { font-family: 'Montserrat', sans-serif; text-align: center; color: var(--gold); font-size: clamp(1.6rem,4vw,2.4rem); margin-bottom: 50px; }
+    .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px,100%), 1fr)); gap: 28px; max-width: 1000px; margin: 0 auto; }
+    .value-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: clamp(20px,4vw,32px) 24px; text-align: center; transition: transform .3s, border-color .3s; }
+    .value-card:hover { transform: translateY(-5px); border-color: rgba(201,168,76,.5); }
+    .value-icon { font-size: 32px; margin-bottom: 16px; }
+    .value-card h3 { font-family: 'Montserrat', sans-serif; color: var(--gold); margin-bottom: 10px; font-size: 1.1rem; }
+    .value-card p { color: var(--text-muted); font-size: 14px; line-height: 1.6; }
+
+    /* ── TEAM ── */
+    .team-section { padding: clamp(40px,8vw,80px) clamp(16px,4vw,40px); max-width: 1100px; margin: 0 auto; }
+    .team-section h2 { font-family: 'Montserrat', sans-serif; text-align: center; color: var(--gold); font-size: clamp(1.6rem,4vw,2.4rem); margin-bottom: 12px; }
+    .section-sub { text-align: center; color: var(--text-muted); margin-bottom: 50px; font-size: 15px; }
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px,45%), 1fr)); gap: 24px; }
+    .team-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; text-align: center; transition: transform .3s; }
+    .team-card:hover { transform: translateY(-5px); }
+    .team-card img { width: 100%; height: 180px; object-fit: cover; }
+    .team-card-body { padding: 16px; }
+    .team-card h3 { font-family: 'Montserrat', sans-serif; color: var(--cream); margin-bottom: 4px; font-size: .95rem; }
+    .team-card p { color: var(--gold); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
+
+    /* ── CTA ── */
+    .cta-banner { text-align: center; padding: clamp(40px,8vw,70px) 20px; background: radial-gradient(ellipse at 50% 50%, rgba(201,168,76,.08) 0%, transparent 65%); border-top: 1px solid var(--border); }
+    .cta-banner h2 { font-family: 'Montserrat', sans-serif; font-size: clamp(1.4rem,4vw,2.4rem); color: var(--cream); margin-bottom: 12px; }
+    .cta-banner p { color: var(--text-muted); margin-bottom: 32px; }
+    .btn-group { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 13px 28px; background: var(--gold); color: #000; text-decoration: none; border-radius: 30px; font-weight: 700; font-size: 14px; letter-spacing: .5px; transition: background .25s, transform .2s; }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 8px; padding: 13px 28px; background: transparent; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; border-radius: 30px; font-size: 14px; letter-spacing: .5px; transition: all .25s; }
+    .btn-secondary:hover { background: rgba(201,168,76,.1); }
+
+    @media (max-width: 700px) {
+      .timeline::before { left: 20px; transform: none; }
+      .timeline-item, .timeline-item:nth-child(even) { flex-direction: column; }
+      .timeline-text, .timeline-item:nth-child(even) .timeline-text { text-align: left; padding: 0 0 0 50px; }
+      .timeline-img, .timeline-item:nth-child(even) .timeline-img { padding: 0 0 0 50px; }
+      .timeline-dot { align-self: auto; position: absolute; left: 12px; }
+      .timeline-item { position: relative; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BANNER -->
+  <div class="top-banner">
+    <img src="HQ_trademark.png" class="banner-img" alt="HQ Banner">
+    <a href="https://www.facebook.com/people/%E6%80%A1%E5%A0%A1%E9%A4%90%E5%8E%85Yi-POH-Hainan-CHOP/100063962281068/" target="_blank" class="facebook-link">
+      <img src="https://www.svgrepo.com/show/419926/facebook-fb-social-icon.svg" alt="Facebook"> <span class="fb-text">Facebook</span>
+    </a>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <nav class="nav-links" id="navMenu">
+      <ul>
+        <li><a href="index.html" data-en="Home" data-cn="主页">Home</a></li>
+        <li><a href="Menu.html" data-en="Menu" data-cn="菜单">Menu</a></li>
+        <li><a href="about.html" class="active" data-en="About Us" data-cn="关于我们">About Us</a></li>
+        <li><a href="contact.html" data-en="Contact Us" data-cn="联系我们">Contact Us</a></li>
+      </ul>
+    </nav>
+    <div class="language">
+      <button onclick="changeLang('en')" id="btn-en" class="lang-active">EN</button>
+      <button onclick="changeLang('cn')" id="btn-cn">中文</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="about-hero">
+    <img src="cGXAZ.jpg" alt="HQ White Coffee">
+    <div class="about-hero-content">
+      <p class="eyebrow-label" data-en="Our Story" data-cn="我们的故事">Our Story</p>
+      <h1 data-en="Rooted in <em>Tradition</em>,<br>Brewed with Heart" data-cn="植根于<em>传统</em>，<br>用心冲泡">Rooted in <em>Tradition</em>,<br>Brewed with Heart</h1>
+      <div class="gold-rule"></div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="intro-section">
+    <p data-en="&ldquo;Every cup of HQ White Coffee carries the warmth of generations — from the charcoal-roasted beans of Ipoh to the hands that brew them with care.&rdquo;"
+       data-cn="「每一杯 HQ 白咖啡都承载着几代人的温暖——从怡保的炭烤咖啡豆，到那双用心冲泡的手。」">
+      "Every cup of HQ White Coffee carries the warmth of generations — from the charcoal-roasted beans of Ipoh to the hands that brew them with care."
+    </p>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="story-section">
+    <h2 data-en="Our Journey" data-cn="我们的历程">Our Journey</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-text">
+          <p class="timeline-year" data-en="The Beginning" data-cn="创业初期">The Beginning</p>
+          <h3 data-en="A Humble Start" data-cn="谦逊起步">A Humble Start</h3>
+          <p data-en="HQ White Coffee began as a small neighborhood café, serving freshly brewed coffee alongside traditional kaya toast, simple noodles, and classic Chinese dishes."
+             data-cn="HQ 白咖啡起初是一家小型社区咖啡馆，供应新鲜冲泡咖啡、传统咖椰吐司、简单面食和经典中式菜肴。">HQ White Coffee began as a small neighborhood café, serving freshly brewed coffee alongside traditional kaya toast, simple noodles, and classic Chinese dishes.</p>
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-img">
+          <img src="https://scontent.fkul21-2.fna.fbcdn.net/v/t39.30808-6/485319220_1079508010857932_3493217852575338828_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_ohc=nRiqooXHT4cQ7kNvwGrOP7a&_nc_oc=AdqtPstxsas3YXtMb1n0F-IzcspThlcTpsenN3T7Z5LDJMlMkoURHepTTOrVIUycsZ8&_nc_zt=23&_nc_ht=scontent.fkul21-2.fna&_nc_gid=nOV_IVUv4ZgnZY4YIdBJzA&_nc_ss=7a3a8&oh=00_Af1ife1N3zESxRLdIrCgA_V4V1fDcPSoP9BQxU4hyuI6og&oe=69EB45E7" alt="Old coffee shop">
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-text">
+          <p class="timeline-year" data-en="The Growth" data-cn="成长发展">The Growth</p>
+          <h3 data-en="A Growing Community" data-cn="壮大的社区">A Growing Community</h3>
+          <p data-en="As more customers discovered and fell in love with our food, the café quickly grew in popularity. With increasing support from the community, we expanded our offerings and space."
+             data-cn="随着越来越多顾客发现并爱上我们的食物，咖啡馆迅速赢得人气。凭借社区的大力支持，我们扩展了菜品和空间。">As more customers discovered and fell in love with our food, the café quickly grew in popularity. With increasing support from the community, we expanded our offerings and space.</p>
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-img">
+          <img src="https://scontent.fkul21-2.fna.fbcdn.net/v/t39.30808-6/487506848_1091688022973264_1819026920905791409_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_ohc=QhzwjVZAgX4Q7kNvwEThHuR&_nc_oc=AdpQndUdugfhU-eGkBtLIct_ssJOHZTAM7qe52X6BzBhdZvO03G8ENcmY9nGvdW9wbI&_nc_zt=23&_nc_ht=scontent.fkul21-2.fna&_nc_gid=2i6pXzXl4lb3znmtYFx2cg&_nc_ss=7a3a8&oh=00_Af2uSZLiPJLWBLm8q-hZJhv_gizjhbkSWlTTeHwwaUh6fA&oe=69EB6F9C" alt="Coffee roasting">
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-text">
+          <p class="timeline-year" data-en="Today" data-cn="现今">Today</p>
+          <h3 data-en="A Modern Dining Experience" data-cn="现代餐饮体验">A Modern Dining Experience</h3>
+          <p data-en="Today, HQ White Coffee has evolved into a full restaurant offering a diverse menu — alongside our signature local favorites, we now serve Western cuisine, Hainanese specialties, and Italian pasta."
+             data-cn="如今，HQ 白咖啡已发展成为一家提供多样化菜单的完整餐厅——除招牌本地美食外，我们还供应西式料理、海南特色菜和意大利面。">Today, HQ White Coffee has evolved into a full restaurant offering a diverse menu — alongside our signature local favorites, we now serve Western cuisine, Hainanese specialties, and Italian pasta.</p>
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-img">
+          <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&q=80" alt="Modern cafe">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- VALUES -->
+  <div class="values-section">
+    <h2 data-en="What We Stand For" data-cn="我们的理念">What We Stand For</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">☕</div>
+        <h3 data-en="Authenticity" data-cn="正宗传统">Authenticity</h3>
+        <p data-en="We use time-tested Hainanese recipes and quality beans. No shortcuts, no compromises."
+           data-cn="我们采用经过时间考验的海南菜谱和优质咖啡豆，绝不走捷径，绝不妥协。">We use time-tested Hainanese recipes and quality beans. No shortcuts, no compromises.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🏡</div>
+        <h3 data-en="Community" data-cn="社区情怀">Community</h3>
+        <p data-en="More than a café — we are a gathering place. Your second living room in Ipoh."
+           data-cn="不仅是一家咖啡馆——我们是一个聚集地，您在怡保的第二个客厅。">More than a café — we are a gathering place. Your second living room in Ipoh.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🌿</div>
+        <h3 data-en="Freshness" data-cn="新鲜品质">Freshness</h3>
+        <p data-en="Every item on our menu is prepared fresh daily. From the bread to the kaya."
+           data-cn="菜单上的每一道菜每天新鲜制作，从面包到咖椰无一例外。">Every item on our menu is prepared fresh daily. From the bread to the kaya.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🤝</div>
+        <h3 data-en="Hospitality" data-cn="热情好客">Hospitality</h3>
+        <p data-en="Warm service is as important as the coffee itself. We treat every guest like family."
+           data-cn="热情的服务与咖啡本身同等重要，我们将每位顾客视为家人。">Warm service is as important as the coffee itself. We treat every guest like family.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEAM -->
+  <div class="team-section">
+    <h2 data-en="The Faces Behind the Cup" data-cn="咖啡背后的团队">The Faces Behind the Cup</h2>
+    <p class="section-sub" data-en="A passionate team that lives and breathes kopi culture." data-cn="一支热爱并传承咖啡文化的热情团队。">A passionate team that lives and breathes kopi culture.</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <img src="" alt="Founder">
+        <div class="team-card-body">
+          <h3>Uncle Heng</h3>
+          <p data-en="Founder & Master Brewer" data-cn="创始人兼首席咖啡师">Founder & Master Brewer</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <img src="" alt="Chef">
+        <div class="team-card-body">
+          <h3>Auntie Mei</h3>
+          <p data-en="Head of Kitchen" data-cn="厨房主管">Head of Kitchen</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <img src="" alt="Manager">
+        <div class="team-card-body">
+          <h3>Sarah Lim</h3>
+          <p data-en="Operations Manager" data-cn="运营经理">Operations Manager</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <img src="" alt="Barista">
+        <div class="team-card-body">
+          <h3>Razif</h3>
+          <p data-en="Senior Barista" data-cn="高级咖啡师">Senior Barista</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-banner">
+    <h2 data-en="Come Experience It Yourself" data-cn="亲身体验一下">Come Experience It Yourself</h2>
+    <p data-en="We're open 7 days a week, 7 AM – 9 PM. No reservations needed — but we love a heads up!"
+       data-cn="我们每周7天营业，早上7点至晚上9点。无需预约——但提前告知我们更好！">We're open 7 days a week, 7 AM – 9 PM. No reservations needed — but we love a heads up!</p>
+    <div class="btn-group">
+      <a href="Menu.html" class="btn-primary" data-en="Explore Our Menu →" data-cn="浏览我们的菜单 →">Explore Our Menu →</a>
+      <a href="contact.html" class="btn-secondary" data-en="Find Us" data-cn="找到我们">Find Us</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p data-en="© 2025 HQ White Coffee. All rights reserved." data-cn="© 2025 HQ 白咖啡。版权所有。">&copy; 2025 HQ White Coffee. All rights reserved.</p>
+  </footer>
+
+  <script src="HQ.js"></script>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.timeline-item').forEach(item => observer.observe(item));
+  </script>
+</body>
+</html>
