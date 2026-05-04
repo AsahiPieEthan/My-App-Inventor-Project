@@ -338,3 +338,93 @@ document.addEventListener('DOMContentLoaded', () => {
   Petals.init();
   SmoothScroll.init();
 });
+
+/* ═════ MUSICS ════════════════════════════════════════ */ 
+const audio = document.getElementById("bgMusic");
+const toggleBtn = document.getElementById("toggleMusic");
+const closeBtn = document.getElementById("closeMusic");
+const player = document.getElementById("musicPlayer");
+const title = document.getElementById("musicTitle");
+
+// 🎵 Playlist
+const playlist = [
+  "assets/music/Frieren_Last_Adventure.mpeg",
+  "assets/music/Frieren_In_Time_of_Peace.mp3",
+  "assets/music/Frieren_Where_The_Blue_Weed_Grows.mpeg"
+];
+
+const trackNames = [
+  "✦ Frieren - One Last Adventure",
+  "✦ Frieren - In Time of Peace",
+  "✦ Frieren - Where The Blue Weed Grows"
+];
+
+let currentSong = 0;
+let isPlaying = false;
+
+// load song
+function loadSong(index) {
+  audio.src = playlist[index];
+  title.textContent = trackNames[index];
+}
+
+// play song
+function playSong() {
+  audio.play();
+  isPlaying = true;
+  toggleBtn.textContent = "⏸";
+}
+
+// pause song
+function pauseSong() {
+  audio.pause();
+  isPlaying = false;
+  toggleBtn.textContent = "▶";
+}
+
+// init first song
+loadSong(currentSong);
+
+// autoplay attempt (browser-safe)
+window.addEventListener("load", () => {
+  audio.play().then(() => {
+    isPlaying = true;
+    toggleBtn.textContent = "⏸";
+  }).catch(() => {
+    isPlaying = false;
+    toggleBtn.textContent = "▶";
+  });
+});
+
+// toggle play/pause
+toggleBtn.addEventListener("click", () => {
+  if (isPlaying) {
+    pauseSong();
+  } else {
+    playSong();
+  }
+});
+
+// auto next song
+audio.addEventListener("ended", () => {
+  currentSong++;
+
+  if (currentSong >= playlist.length) {
+    currentSong = 0;
+  }
+
+  loadSong(currentSong);
+  playSong();
+});
+
+// close UI (music continues playing)
+closeBtn.addEventListener("click", () => {
+  player.classList.add("hidden");
+});
+
+// fallback: unlock autoplay on first click anywhere
+window.addEventListener("click", () => {
+  if (!isPlaying) {
+    playSong();
+  }
+}, { once: true });
