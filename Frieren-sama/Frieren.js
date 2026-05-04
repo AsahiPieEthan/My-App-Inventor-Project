@@ -350,7 +350,7 @@ const title = document.getElementById("musicTitle");
 const playlist = [
   "assets/music/Frieren_Last_Adventure.mpeg",
   "assets/music/Frieren_In_Time_of_Peace.mp3",
-  "assets/music/Frieren_Where_The_Blue_Weed_Grows.mpeg"
+  "assets/music/Frieren_Where_The_Blue_Weed_Grows.mp3"
 ];
 
 const trackNames = [
